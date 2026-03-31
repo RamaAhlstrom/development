@@ -1,0 +1,21 @@
+{
+    "_Type": "Control.Type.ObjectCell",
+    "AccessoryType": "DisclosureIndicator",
+    "PreserveIconStackSpacing": false,
+    "Title": "/SAPAssetManager/Rules/EWM/PhysicalInventory/PhysicalInventoryProduct.js",
+    "Subhead": "/SAPAssetManager/Rules/EWM/PhysicalInventory/PhysicalInventoryDetails.js",
+    "Footnote": "/SAPAssetManager/Rules/EWM/PhysicalInventory/GetWOandSerializedData.js",
+    "Description": "/SAPAssetManager/Rules/EWM/PhysicalInventory/GetCountDate.js",
+    "StatusText": "/SAPAssetManager/Rules/EWM/PhysicalInventory/GetCountStatus.js",
+    "SubstatusText": "/SAPAssetManager/Rules/EWM/PhysicalInventory/GetCountQuantity.js",
+    "OnPress": "/SAPAssetManager/Actions/EWM/PhysicalInventory/EWMPhysicalInventoryItemDetailsNav.action",
+    "AccessoryButtonIcon": "$(PLT, /SAPAssetManager/Images/edit-accessory.ios.png, /SAPAssetManager/Images/edit-accessory.android.png, '', /SAPAssetManager/Images/edit-accessory.android.png)",
+    "OnAccessoryButtonPress": "/SAPAssetManager/Rules/EWM/PhysicalInventory/PICountNav.js",
+    "AvatarStack": {
+        "Avatars": [{
+            "Image": "$(PLT,/SAPAssetManager/Images/ewm.pi.light.png,/SAPAssetManager/Images/ewm.pi.android.light.png)"
+        }],
+        "ImageHasBorder": true,
+        "ImageIsCircular": false
+    }
+}

@@ -1,0 +1,12 @@
+{
+"_Type": "Control.Type.ObjectCell",
+"AccessoryType": "DisclosureIndicator",
+"Title": "#Property:Material",
+"Subhead":"#Property:ReferenceDocNumber",
+"Footnote": "/SAPAssetManager/Rules/FL/PackageItems/PackageItemsFootnote.js",
+"Description": "#Property:ShippingPoint",
+"StatusText": "#Property:FldLogsContainerItemStatus_Nav/FldContainerItemStatusDesc",
+"SubstatusText": "/SAPAssetManager/Rules/FL/PackageItems/PackageItemsSubstatus.js",
+"OnPress": "/SAPAssetManager/Rules/FL/PackageItems/PackageItemDetailsPageNav.js",
+"AccessoryButtonIcon": "$(PLT, /SAPAssetManager/Images/edit-accessory.ios.png, /SAPAssetManager/Images/edit-accessory.android.png,'',/SAPAssetManager/Images/edit-accessory.ios.png)"
+}

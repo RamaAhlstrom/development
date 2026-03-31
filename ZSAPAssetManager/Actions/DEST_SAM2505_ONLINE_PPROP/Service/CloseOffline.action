@@ -1,0 +1,10 @@
+{
+    "_Type": "Action.Type.OfflineOData.Close",
+    "Service": "/ZSAPAssetManager/Services/DEST_SAM2505_ONLINE_PPROP.service",
+    "Force": true,
+    "ActionResult": {
+        "_Name": "close"
+    },
+    "OnSuccess": "/ZSAPAssetManager/Actions/DEST_SAM2505_ONLINE_PPROP/Service/CloseOfflineSuccessMessage.action",
+    "OnFailure": "/ZSAPAssetManager/Actions/DEST_SAM2505_ONLINE_PPROP/Service/CloseOfflineFailureMessage.action"
+}

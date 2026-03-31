@@ -1,0 +1,14 @@
+{
+    "Service": "/ZSAPAssetManager/Services/DEST_SAM2505_ONLINE_PPROP.service",
+    "DefiningRequests": [{
+        "Name": "AddressCommunications",
+        "Query": "AddressCommunications"
+    }],
+    "_Type": "Action.Type.ODataService.Initialize",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText": "Downloading...",
+    "ActionResult": {
+        "_Name": "init"
+    },
+    "OnFailure": "/ZSAPAssetManager/Actions/DEST_SAM2505_ONLINE_PPROP/Service/InitializeOfflineFailureMessage.action"
+}

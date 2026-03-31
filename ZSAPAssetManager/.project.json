@@ -1,0 +1,44 @@
+{
+    "Credential": "cf",
+    "Template": {
+        "Id": "@ext-mdkvsc-npm-dev/generator-mdk",
+        "Name": "Base",
+        "Version": "0.0.1"
+    },
+    "CF": {
+        "Target": "https://api.cf.eu20.hana.ondemand.com",
+        "Organization": "39b8d01b-1a79-46e5-aaff-2c0220a41d32",
+        "Space": "814f4ee7-c558-42e5-af14-7f4c71681ec1",
+        "Deploy": {
+            "Description": "",
+            "WebClient": {
+                "Runtime": "",
+                "URL": ""
+            },
+            "Destination": [{
+                "CF": "",
+                "MDK": "DEST_SAM2505_PPROP",
+                "URL": ""
+            }]
+        }
+    },
+    "MobileService": {
+        "Type": "standard",
+        "AdminAPI": "https://mobile-service-cockpit-api.cfapps.eu20.hana.ondemand.com/cockpit/v1/org/39b8d01b-1a79-46e5-aaff-2c0220a41d32/space/814f4ee7-c558-42e5-af14-7f4c71681ec1",
+        "AppId": "SAM2505",
+        "Destination": ["DEST_SAM2505_ONLINE_PPROP", "DEST_SAM2505_PPROP"]
+    },
+    "Onboarding": {
+        "Schema": "sapmobilesvcs",
+        "TimeZone": "UTC",
+        "URL": "sapmobilesvcs://?AppId=SAM2505&ClientId=0f55978d-1fa4-4b03-8adb-f35888982ed5&SapCloudPlatformEndpoint=https://am-dev-am-cf-devspace-sam2505.cfapps.eu20.hana.ondemand.com&AuthorizationEndpointUrl=https://am-dev-am-cf-devspace-sam2505.cfapps.eu20.hana.ondemand.com/oauth2/api/v1/authorize&RedirectUrl=https://am-dev-am-cf-devspace-sam2505.cfapps.eu20.hana.ondemand.com&TokenUrl=https://am-dev-am-cf-devspace-sam2505.cfapps.eu20.hana.ondemand.com/oauth2/api/v1/token"
+    },
+    "LCAP": {
+        "FullName": "",
+        "Service": [],
+        "sourceTemplate": {
+            "id": "html5moduletemplates.basicSAPUI5ApplicationProjectModule",
+            "version": "1.40.12"
+        }
+    }
+}

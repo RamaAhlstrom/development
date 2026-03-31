@@ -1,0 +1,350 @@
+{
+	"ProjectName": "ZSAPAssetManager",
+	"ApplicationName": "ZSAPAssetManager",
+	"IntegrationPoints": [
+		{
+			"Source": "/ZSAPAssetManager/i18n/i18n.properties",
+			"Target": "/SAPAssetManager/i18n/i18n.properties"
+		},
+		{
+			"Source": "/ZSAPAssetManager/i18n/i18n_en.properties",
+			"Target": "/SAPAssetManager/i18n/i18n_en.properties"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/Notifications/CreateUpdate/RequiredFields.js",
+			"Target": "/SAPAssetManager/Rules/Notifications/CreateUpdate/RequiredFields.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/Notifications/CreateUpdate/TypeFieldCaption.js",
+			"Target": "/SAPAssetManager/Rules/Notifications/CreateUpdate/TypeFieldCaption.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/Notifications/CreateUpdate/DescriptionFieldCaption.js",
+			"Target": "/SAPAssetManager/Rules/Notifications/CreateUpdate/DescriptionFieldCaption.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/Notifications/CreateUpdate/NotificationCreateUpdatePickerItems.js",
+			"Target": "/SAPAssetManager/Rules/Notifications/CreateUpdate/NotificationCreateUpdatePickerItems.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/Notifications/CreateUpdate/NotificationCreateUpdateOnCommit.js",
+			"Target": "/SAPAssetManager/Rules/Notifications/CreateUpdate/NotificationCreateUpdateOnCommit.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/Notifications/CreateUpdate/NotificationCreateUpdateCodeGroupCaption.js",
+			"Target": "/SAPAssetManager/Rules/Notifications/CreateUpdate/NotificationCreateUpdateCodeGroupCaption.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/Notifications/CreateUpdate/NotificationCreateUpdateOnPageLoad.js",
+			"Target": "/SAPAssetManager/Rules/Notifications/CreateUpdate/NotificationCreateUpdateOnPageLoad.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/Notifications/CreateUpdate/NotificationCreateUpdateDetectionGroupInitialValue.js",
+			"Target": "/SAPAssetManager/Rules/Notifications/CreateUpdate/NotificationCreateUpdateDetectionGroupInitialValue.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/Notifications/NotificationNPCValueChanged.js",
+			"Target": "/SAPAssetManager/Rules/Notifications/NotificationNPCValueChanged.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Pages/Notifications/NotificationCreateUpdate.page",
+			"Target": "/SAPAssetManager/Pages/Notifications/NotificationCreateUpdate.page"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/Documents/DocumentEditorAttachmentOnValueChange.js",
+			"Target": "/SAPAssetManager/Rules/Documents/DocumentEditorAttachmentOnValueChange.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/Parts/CreateUpdate/UpdateOnlineQueryOptions.js",
+			"Target": "/SAPAssetManager/Rules/Parts/CreateUpdate/UpdateOnlineQueryOptions.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/Material/BOM/BOMMaterialPicketItems.js",
+			"Target": "/SAPAssetManager/Rules/Material/BOM/BOMMaterialPicketItems.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/Parts/Return/CreateUpdate/PartReturnCreateLineItemSuccess.js",
+			"Target": "/SAPAssetManager/Rules/Parts/Return/CreateUpdate/PartReturnCreateLineItemSuccess.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/Parts/Issue/CreateUpdate/PartIssueCreateLineItemSuccess.js",
+			"Target": "/SAPAssetManager/Rules/Parts/Issue/CreateUpdate/PartIssueCreateLineItemSuccess.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/Parts/CreateUpdate/SetMaterialUoM.js",
+			"Target": "/SAPAssetManager/Rules/Parts/CreateUpdate/SetMaterialUoM.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/Parts/PartLibrary.js",
+			"Target": "/SAPAssetManager/Rules/Parts/PartLibrary.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Pages/Parts/PartCreateUpdate.page",
+			"Target": "/SAPAssetManager/Pages/Parts/PartCreateUpdate.page"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Pages/Parts/PartDetails.page",
+			"Target": "/SAPAssetManager/Pages/Parts/PartDetails.page"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Pages/WorkOrders/WorkOrderDetailsWithObjectCards.page",
+			"Target": "/SAPAssetManager/Pages/WorkOrders/WorkOrderDetailsWithObjectCards.page"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/WorkOrders/Operations/WorkOrderOperationsLongPress.js",
+			"Target": "/SAPAssetManager/Rules/WorkOrders/Operations/WorkOrderOperationsLongPress.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/FastFilters/MultiPersonaFilters/OperationFastFilters.js",
+			"Target": "/SAPAssetManager/Rules/FastFilters/MultiPersonaFilters/OperationFastFilters.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/FastFilters/FastFilters.js",
+			"Target": "/SAPAssetManager/Rules/FastFilters/FastFilters.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/WorkOrders/Operations/WorkOrderOperationsListViewQueryOption.js",
+			"Target": "/SAPAssetManager/Rules/WorkOrders/Operations/WorkOrderOperationsListViewQueryOption.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/WorkOrders/Operations/WorkOrderOperationsListViewDescription.js",
+			"Target": "/SAPAssetManager/Rules/WorkOrders/Operations/WorkOrderOperationsListViewDescription.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/SideDrawer/SideDrawerHeadLine.js",
+			"Target": "/SAPAssetManager/Rules/SideDrawer/SideDrawerHeadLine.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Pages/Fragments/WorkOrder/WorkOrderDetails/WorkOrderDetails.fragment",
+			"Target": "/SAPAssetManager/Pages/Fragments/WorkOrder/WorkOrderDetails/WorkOrderDetails.fragment"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Pages/WorkOrders/Operations/WorkOrderOperationDetailsWithObjectCards.page",
+			"Target": "/SAPAssetManager/Pages/WorkOrders/Operations/WorkOrderOperationDetailsWithObjectCards.page"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/WorkOrders/Details/WorkOrderQABSettings.js",
+			"Target": "/SAPAssetManager/Rules/WorkOrders/Details/WorkOrderQABSettings.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Actions/WorkOrders/WorkOrderDetailsAddPopover.action",
+			"Target": "/SAPAssetManager/Actions/WorkOrders/WorkOrderDetailsAddPopover.action"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/QAB/QABSettings.js",
+			"Target": "/SAPAssetManager/Rules/QAB/QABSettings.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/QAB/EquipmentFunctionalLocationQABSettings.js",
+			"Target": "/SAPAssetManager/Rules/QAB/EquipmentFunctionalLocationQABSettings.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/UserAuthorizations/Notifications/EnableNotificationCreateFromWorkOrderOperation.js",
+			"Target": "/SAPAssetManager/Rules/UserAuthorizations/Notifications/EnableNotificationCreateFromWorkOrderOperation.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Pages/WorkOrders/WorkOrderCreateUpdate.page",
+			"Target": "/SAPAssetManager/Pages/WorkOrders/WorkOrderCreateUpdate.page"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Pages/WorkOrders/WorkOrderDetails.page",
+			"Target": "/SAPAssetManager/Pages/WorkOrders/WorkOrderDetails.page"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Actions/WorkOrders/WorkOrderUpdate.action",
+			"Target": "/SAPAssetManager/Actions/WorkOrders/WorkOrderUpdate.action"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Pages/Fragments/WorkOrder/WorkOrderOperations/WorkOrderOperationDetailsSection.fragment",
+			"Target": "/SAPAssetManager/Pages/Fragments/WorkOrder/WorkOrderOperations/WorkOrderOperationDetailsSection.fragment"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Pages/Fragments/WorkOrder/WorkOrderOperations/WorkOrderOperationWorkOrderListSection.fragment",
+			"Target": "/SAPAssetManager/Pages/Fragments/WorkOrder/WorkOrderOperations/WorkOrderOperationWorkOrderListSection.fragment"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Actions/WorkOrders/Operations/WorkOrderOperationUpdate.action",
+			"Target": "/SAPAssetManager/Actions/WorkOrders/Operations/WorkOrderOperationUpdate.action"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/WorkOrders/Operations/CreateUpdate/WorkOrderOperationCreateUpdateDefault.js",
+			"Target": "/SAPAssetManager/Rules/WorkOrders/Operations/CreateUpdate/WorkOrderOperationCreateUpdateDefault.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Pages/WorkOrders/Operations/WorkOrderOperationCreateUpdate.page",
+			"Target": "/SAPAssetManager/Pages/WorkOrders/Operations/WorkOrderOperationCreateUpdate.page"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/Notifications/NotificationLibrary.js",
+			"Target": "/SAPAssetManager/Rules/Notifications/NotificationLibrary.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/Supervisor/Assign/WorkOrderOperationAssignedToListWrapper.js",
+			"Target": "/SAPAssetManager/Rules/Supervisor/Assign/WorkOrderOperationAssignedToListWrapper.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/Supervisor/SupervisorLibrary.js",
+			"Target": "/SAPAssetManager/Rules/Supervisor/SupervisorLibrary.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/Supervisor/Assign/WorkOrderOperationAssignedTo.js",
+			"Target": "/SAPAssetManager/Rules/Supervisor/Assign/WorkOrderOperationAssignedTo.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Pages/Notifications/NotificationUpdateMalfunctionEnd.page",
+			"Target": "/SAPAssetManager/Pages/Notifications/NotificationUpdateMalfunctionEnd.page"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/Notifications/MalfunctionEnd.js",
+			"Target": "/SAPAssetManager/Rules/Notifications/MalfunctionEnd.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/WorkOrders/Complete/FinalizeCompletePageMessage.js",
+			"Target": "/SAPAssetManager/Rules/WorkOrders/Complete/FinalizeCompletePageMessage.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Pages/WorkOrders/CompleteWorkOrder.page",
+			"Target": "/SAPAssetManager/Pages/WorkOrders/CompleteWorkOrder.page"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/Notes/NoteLibrary.js",
+			"Target": "/SAPAssetManager/Rules/Notes/NoteLibrary.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/Notes/NoteCreateOnCommit.js",
+			"Target": "/SAPAssetManager/Rules/Notes/NoteCreateOnCommit.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/Notes/Update/NoteUpdateOnCommit.js",
+			"Target": "/SAPAssetManager/Rules/Notes/Update/NoteUpdateOnCommit.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/WorkOrders/Complete/Note/ChangeNote.js",
+			"Target": "/SAPAssetManager/Rules/WorkOrders/Complete/Note/ChangeNote.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/WorkOrders/Complete/CancelCompletePage.js",
+			"Target": "/SAPAssetManager/Rules/WorkOrders/Complete/CancelCompletePage.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/WorkOrders/Complete/ResetCompleteScreenFields.js",
+			"Target": "/SAPAssetManager/Rules/WorkOrders/Complete/ResetCompleteScreenFields.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Pages/SideMenuDrawer.page",
+			"Target": "/SAPAssetManager/Pages/SideMenuDrawer.page"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/Notifications/CreateUpdate/ShowTemplateButton.js",
+			"Target": "/SAPAssetManager/Rules/Notifications/CreateUpdate/ShowTemplateButton.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Actions/WorkOrders/Operations/WorkOrderOperationDetailsPopover.action",
+			"Target": "/SAPAssetManager/Actions/WorkOrders/Operations/WorkOrderOperationDetailsPopover.action"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Actions/Parts/PartDetailsNotesPopover.action",
+			"Target": "/SAPAssetManager/Actions/Parts/PartDetailsNotesPopover.action"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Actions/Parts/PartDetailsPopover.action",
+			"Target": "/SAPAssetManager/Actions/Parts/PartDetailsPopover.action"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Pages/Notes/NoteUpdate.page",
+			"Target": "/SAPAssetManager/Pages/Notes/NoteUpdate.page"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Pages/Fragments/Parts/PartsObjectCardCollection.fragment",
+			"Target": "/SAPAssetManager/Pages/Fragments/Parts/PartsObjectCardCollection.fragment"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Actions/Notifications/NotificationDetailsPopover.action",
+			"Target": "/SAPAssetManager/Actions/Notifications/NotificationDetailsPopover.action"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/Notes/NotesViewCaption.js",
+			"Target": "/SAPAssetManager/Rules/Notes/NotesViewCaption.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Pages/Notifications/NotificationDetails.page",
+			"Target": "/SAPAssetManager/Pages/Notifications/NotificationDetails.page"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Pages/Fragments/WorkOrder/NotesObjectSection.fragment",
+			"Target": "/SAPAssetManager/Pages/Fragments/WorkOrder/NotesObjectSection.fragment"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/Notifications/CreateUpdate/NPCValues.js",
+			"Target": "/SAPAssetManager/Rules/Notifications/CreateUpdate/NPCValues.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/Notifications/CreateUpdate/NotificationLinks.js",
+			"Target": "/SAPAssetManager/Rules/Notifications/CreateUpdate/NotificationLinks.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/WorkOrders/Operations/CreateUpdate/CreateOperationMobileStatus.js",
+			"Target": "/SAPAssetManager/Rules/WorkOrders/Operations/CreateUpdate/CreateOperationMobileStatus.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/WorkOrders/SubOperations/CreateUpdate/CreateSubOperationMobileStatus.js",
+			"Target": "/SAPAssetManager/Rules/WorkOrders/SubOperations/CreateUpdate/CreateSubOperationMobileStatus.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Pages/Inventory/Stock/StockInfo.page",
+			"Target": "/SAPAssetManager/Pages/Inventory/Stock/StockInfo.page"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Pages/Overview.page",
+			"Target": "/SAPAssetManager/Pages/Overview.page"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/WorkOrders/WorkOrderLibrary.js",
+			"Target": "/SAPAssetManager/Rules/WorkOrders/WorkOrderLibrary.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/Operations/WorkOrderOperationQABSettings.js",
+			"Target": "/SAPAssetManager/Rules/Operations/WorkOrderOperationQABSettings.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/Notifications/EMP/CreateEMPEntries.js",
+			"Target": "/SAPAssetManager/Rules/Notifications/EMP/CreateEMPEntries.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/Parts/PartsListQueryOptions.js",
+			"Target": "/SAPAssetManager/Rules/Parts/PartsListQueryOptions.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/MobileStatus/CompleteMobileStatusAction.js",
+			"Target": "/SAPAssetManager/Rules/MobileStatus/CompleteMobileStatusAction.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/OverviewPage/MyWorkSection/MyWorkSectionQueryOption.js",
+			"Target": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/MyWorkSectionQueryOption.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/i18n/i18n_fi.properties",
+			"Target": "/SAPAssetManager/i18n/i18n_fi.properties"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Pages/User/Personalization.page",
+			"Target": "/SAPAssetManager/Pages/User/Personalization.page"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/UserPreferences/UserPreferencesUpdate.js",
+			"Target": "/SAPAssetManager/Rules/UserPreferences/UserPreferencesUpdate.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/WorkOrders/Operations/WorkOrderOperationLibrary.js",
+			"Target": "/SAPAssetManager/Rules/WorkOrders/Operations/WorkOrderOperationLibrary.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/OverviewPage/MyWorkSection/MyWorkSectionFooterLabel.js",
+			"Target": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/MyWorkSectionFooterLabel.js"
+		},
+		{
+			"Source": "/ZSAPAssetManager/Rules/WorkOrders/ListView/WorkOrderOperationsListViewDefaultFilters.js",
+			"Target": "/SAPAssetManager/Rules/WorkOrders/ListView/WorkOrderOperationsListViewDefaultFilters.js"
+		}
+	]
+}

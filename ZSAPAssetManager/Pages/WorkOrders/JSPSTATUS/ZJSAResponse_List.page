@@ -1,0 +1,67 @@
+{
+	"Caption": "JSA Response List",
+	"ActionBar": {
+		"Items": [
+			{
+				"_Name": "ActionBarItem0",
+				"Caption": "",
+				"SystemItem": "Cancel",
+				"Position": "Left", 
+				"IsIconCircular": false,
+				"OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
+			}
+		]
+	},
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"Header": {
+						"UseTopPadding": false
+					},
+					"ObjectCell": {
+						"AccessoryType": "DisclosureIndicator",
+						"Description": "{ZOrder}",
+						
+						"StatusImage": "",
+						"Title": "{ZPlant}",
+						"Footnote": "{ZUserName}",
+						"PreserveIconStackSpacing": false,
+						"StatusText": "{ZLastChanged}",
+						"Subhead": "{ZPlant}",
+						"SubstatusText": ""
+					},
+					"EmptySection": {
+						"Caption": "No record found!"
+					},
+					"Search": {
+						"Enabled": true,
+						"Placeholder": "Item Search",
+						"BarcodeScanner": true,
+						"Delay": 500,
+						"MinimumCharacterThreshold": 3
+					},
+					"DataPaging": {
+						"ShowLoadingIndicator": true,
+						"LoadingIndicatorText": "Loading more items, please wait..."
+					},
+					"Target": {
+						"EntitySet": "ZJSARESPONSESet",
+						"Service": "/SAPAssetManager/Services/AssetManager.service",
+						"QueryOptions": ""
+					},
+					"_Type": "Section.Type.ObjectTable"
+				}
+			],
+			"LoadingIndicator": {
+				"Enabled": true,
+				"Text": "Loading, please wait..."
+			},
+			"_Type": "Control.Type.SectionedTable",
+			"_Name": "SectionedTable"
+		}
+	],
+	"_Type": "Page",
+	"_Name": "Zmobilecmplt_List",
+	"PrefersLargeCaption": true
+}

@@ -1,0 +1,8 @@
+{
+	"_Type": "Action.Type.Navigation",
+	"ActionResult": {
+		"_Name": "JspStatus"
+	},
+	"PageToOpen": "/SAPAssetManager/Pages/WorkOrders/JSPSTATUS/Zmobilecmplt_Create.page",
+	"ModalPage": true
+}
