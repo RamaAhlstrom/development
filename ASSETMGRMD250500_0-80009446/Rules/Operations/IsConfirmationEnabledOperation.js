@@ -2,7 +2,7 @@
  * Returns true if the confirmation indicator is not 3
  * @param {IClientAPI} context
  */
-export default function IsConfirmationEnabledOperation(context, actionBinding) {
+export default function IsOperationControlKeyAllowsConfirmation(context, actionBinding) {
     const binding = actionBinding || context.binding;
 
     if (!binding) return Promise.resolve(false);

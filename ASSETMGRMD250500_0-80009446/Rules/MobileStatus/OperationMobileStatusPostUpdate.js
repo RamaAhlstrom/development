@@ -19,7 +19,7 @@ import MileageIsEnabled from '../ServiceOrders/Mileage/MileageIsEnabled';
 import PDFGenerateDuringCompletion from '../PDF/PDFGenerateDuringCompletion';
 import libAutoSync from '../ApplicationEvents/AutoSync/AutoSyncLibrary';
 import userFeaturesLib from '../UserFeatures/UserFeaturesLibrary';
-import IsConfirmationEnabledOperation from '../Operations/IsConfirmationEnabledOperation';
+import IsOperationControlKeyAllowsConfirmation from '../Operations/IsOperationControlKeyAllowsConfirmation';
 import ToolbarRefresh from '../Common/DetailsPageToolbar/ToolbarRefresh';
 
 function rollbackMobileStatus(context, mobileStatusEditLink, showBanner) {
@@ -178,7 +178,7 @@ export default function OperationMobileStatusPostUpdate(context) {
     if (!binding) {
         binding = common.getStateVariable(context, 'IsOnOperationBinding');
     }
-    return IsConfirmationEnabledOperation(context, binding).then((isConfirmationEnabledOperationResult) => {
+    return IsOperationControlKeyAllowsConfirmation(context, binding).then((isConfirmationEnabledOperationResult) => {
         const isConfirmationEnabled = isConfirmationEnabledOperationResult;
 
         const updateResult = (() => {

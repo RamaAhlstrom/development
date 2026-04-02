@@ -26,11 +26,17 @@ import sdfIsFeatureEnabled from '../../Forms/SDF/SDFIsFeatureEnabled';
 import FormInstanceCount from '../../Forms/SDF/FormInstanceCount';
 import ConfirmationCreateIsEnabled from '../../Confirmations/CreateUpdate/ConfirmationCreateIsEnabled';
 import TimeSheetCreateIsEnabled from '../../TimeSheets/TimeSheetCreateIsEnabled';
+import IsOperationControlKeyAllowsConfirmation from '../../Operations/IsOperationControlKeyAllowsConfirmation';
 
 export default class {
 
 
-    static showTimeCaptureMessage(context, subOperation, isFinalRequired) {
+    static async showTimeCaptureMessage(context, subOperation, isFinalRequired) {
+
+        // If confirmation capture is not enabled, no need to track time sheet or confirmations
+        if (!await(IsOperationControlKeyAllowsConfirmation(context))) {
+            return Promise.resolve(true);
+        }
 
         if (ConfirmationCreateIsEnabled(context)) {
             return libThis.showConfirmationsCaptureMessage(context, subOperation, isFinalRequired);
