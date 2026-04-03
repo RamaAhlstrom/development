@@ -3,6 +3,7 @@ import WorkOrderCompletionLibrary, { runComplete } from '../Complete/WorkOrderCo
 import libCommon from '../../Common/Library/CommonLibrary';
 import {ChecklistLibrary as libChecklist} from '../../Checklists/ChecklistLibrary';
 import SmartFormsCompletionLibrary from '../../Forms/SmartFormsCompletionLibrary';
+import IsOperationControlKeyAllowsConfirmation from '../../Operations/IsOperationControlKeyAllowsConfirmation';
 
 export default function NavOnCompleteOperationPage(context, actionBinding) {
     context.dismissActivityIndicator(); // RunMobileStatusUpdateSequence triggers showActivityIndicator which may result in infinite loading when CheckRequiredFields action is executed.
@@ -26,8 +27,10 @@ export default function NavOnCompleteOperationPage(context, actionBinding) {
             if (results === true) {
                 WorkOrderCompletionLibrary.getInstance().setCompletionFlow('operation');
                 await WorkOrderCompletionLibrary.getInstance().initSteps(context);
-                WorkOrderCompletionLibrary.getInstance().setBinding(context, binding);
-
+                const isConfirmationEnabled = await IsOperationControlKeyAllowsConfirmation(context, binding);
+                if (!isConfirmationEnabled) {
+                    WorkOrderCompletionLibrary.updateStepState(context, 'confirmation', { visible: false });
+                }
                 return IsWONotificationVisible(context, binding.WOHeader, 'Notification').then((notification) => {
                     if (notification) {
                         WorkOrderCompletionLibrary.updateStepState(context, 'notification', {
