@@ -10,7 +10,7 @@ import LocationUpdate from './LocationUpdate';
 import mobileStatusHistoryEntryCreate from './MobileStatusHistoryEntryCreate';
 import autoSyncLib from '../ApplicationEvents/AutoSync/AutoSyncLibrary';
 import ToolbarRefresh from '../Common/DetailsPageToolbar/ToolbarRefresh';
-
+import IsOperationControlKeyAllowsConfirmation from '../Operations/IsOperationControlKeyAllowsConfirmation';
 /**
 * Mobile Status post-update rule
 * @param {IClientAPI} context
@@ -25,117 +25,121 @@ export default function SubOperationMobileStatusPostUpdate(context) {
 
     //Object Card Collection does not have a context binding
     let binding = context.getActionBinding() || context.binding;
-
-    let UpdateCICO = function() {
-        // Save timestamp for confirmation/CATS
-        let odataDate = new ODataDate();
-        common.setStateVariable(context, 'StatusStartDate', odataDate.date());
-
-        // Create relevant CICO entry
-        let cicoValue = '';
-        switch (updateResult.MobileStatus) {
-            case STARTED:
-                cicoValue = 'START_TIME';
-                break;
-            case HOLD:
-            case COMPLETE:
-                cicoValue = 'END_TIME';
-                break;
-            default:
-                break;
-        }
-        return context.executeAction({'Name': '/SAPAssetManager/Actions/ClockInClockOut/WorkOrderClockInOut.action', 'Properties': {
-            'Properties': {
-                'RecordId': generateGUID(),
-                'UserGUID': userGUID,
-                'OperationNo': updateResult.OperationNo,
-                'SubOperationNo': updateResult.SubOperationNo,
-                'OrderId': updateResult.OrderId,
-                'PreferenceGroup': cicoValue,
-                'PreferenceName': updateResult.OrderId,
-                'PreferenceValue': odataDate.toDBDateTimeString(context),
-                'UserId': userId,
-            },
-            'CreateLinks': [{
-                'Property': 'WOSubOperation_Nav',
-                'Target':
-                {
-                    'EntitySet': 'MyWorkOrderSubOperations',
-                    'ReadLink': `MyWorkOrderSubOperations(OrderId='${updateResult.OrderId}',OperationNo='${updateResult.OperationNo}',SubOperationNo='${updateResult.SubOperationNo}')`,
+    return IsOperationControlKeyAllowsConfirmation(context, binding).then((isConfirmationEnabled) => {
+        let UpdateCICO = function() {
+            // Save timestamp for confirmation/CATS
+            let odataDate = new ODataDate();
+            common.setStateVariable(context, 'StatusStartDate', odataDate.date());
+            // Create relevant CICO entry
+            let cicoValue = '';
+            switch (updateResult.MobileStatus) {
+                case STARTED:
+                    cicoValue = 'START_TIME';
+                    break;
+                case HOLD:
+                case COMPLETE:
+                    cicoValue = 'END_TIME';
+                    break;
+                default:
+                    break;
+            }
+            return context.executeAction({'Name': '/SAPAssetManager/Actions/ClockInClockOut/WorkOrderClockInOut.action', 'Properties': {
+                    'Properties': {
+                        'RecordId': generateGUID(),
+                        'UserGUID': userGUID,
+                        'OperationNo': updateResult.OperationNo,
+                        'SubOperationNo': updateResult.SubOperationNo,
+                        'OrderId': updateResult.OrderId,
+                        'PreferenceGroup': cicoValue,
+                        'PreferenceName': updateResult.OrderId,
+                        'PreferenceValue': odataDate.toDBDateTimeString(context),
+                        'UserId': userId,
+                    },
+                    'CreateLinks': [{
+                        'Property': 'WOSubOperation_Nav',
+                        'Target':
+                        {
+                            'EntitySet': 'MyWorkOrderSubOperations',
+                            'ReadLink': `MyWorkOrderSubOperations(OrderId='${updateResult.OrderId}',OperationNo='${updateResult.OperationNo}',SubOperationNo='${updateResult.SubOperationNo}')`,
+                        },
+                    }],
                 },
-            }],
-        }}).then(() => {
-            if (updateResult.MobileStatus === 'HOLD' || updateResult.MobileStatus === 'COMPLETE') {
-                SubOperationMobileStatusLibrary.showTimeCaptureMessage(context, binding, false);
-            }
-        });
-    };
+                }).then(() => {
+                    if ((updateResult.MobileStatus === 'HOLD' || updateResult.MobileStatus === 'COMPLETE') && isConfirmationEnabled)  {
+                        return  SubOperationMobileStatusLibrary.showTimeCaptureMessage(context, binding, false);
+                    }
+                return Promise.resolve();
+            });
+        };
 
-    if (updateResult.MobileStatus === COMPLETE) {
-        return ChecklistLibrary.allowWorkOrderComplete(context, binding.HeaderEquipment, binding.HeaderFunctionLocation).then(results => { //Check for non-complete checklists and ask for confirmation
-            if (results === true) {
-                return SubOperationMobileStatusLibrary.completeSubOperationWithoutTime(context, updateResult); // May throw rejected Promise if signature required and declined
-            }
-            return Promise.resolve();
-        }).then(() => {
-            LocationUpdate(context);
-            return supervisor.checkReviewRequired(context, binding).then(review => {
-                binding.SupervisorDisallowFinal = '';
-                if (review) {
-                    binding.SupervisorDisallowFinal = true; //Tech cannot set final confirmation on review
+        if (updateResult.MobileStatus === COMPLETE) {
+            return ChecklistLibrary.allowWorkOrderComplete(context, binding.HeaderEquipment, binding.HeaderFunctionLocation).then(results => { //Check for non-complete checklists and ask for confirmation
+                if (results === true) {
+                    return SubOperationMobileStatusLibrary.completeSubOperationWithoutTime(context, updateResult); // May throw rejected Promise if signature required and declined
                 }
-                return noteWrapper(context, review).then(() => { //Allow tech to leave note for supervisor
-                    return SubOperationMobileStatusLibrary.showTimeCaptureMessage(context, binding, !review);
+                return Promise.resolve();
+            }).then(() => {
+                LocationUpdate(context);
+                return supervisor.checkReviewRequired(context, binding).then(review => {
+                    binding.SupervisorDisallowFinal = '';
+                    if (review) {
+                        binding.SupervisorDisallowFinal = true; //Tech cannot set final confirmation on review
+                    }
+                    return noteWrapper(context, review).then(() => { //Allow tech to leave note for supervisor
+                        if (isConfirmationEnabled) {
+                            return SubOperationMobileStatusLibrary.showTimeCaptureMessage(context, binding, !review);
+                        }
+                    });
                 });
-            });
-        }).then(() => {
-            context.showActivityIndicator('');
-            let properties = {
-                'MobileStatus': updateResult.MobileStatus,
-                'EffectiveTimestamp': updateResult.EffectiveTimestamp,
-                'CreateUserGUID': updateResult.CreateUserGUID,
-                'CreateUserId': updateResult.CreateUserId,
-            };
-            return mobileStatusHistoryEntryCreate(context, properties, updateResult['@odata.readLink']);
-        }).then(UpdateCICO).then(() => {
-            return ToolbarRefresh(context).then(() => {
-                context.getClientData().ChangeStatus = updateResult.MobileStatus;
-                return context.executeAction('/SAPAssetManager/Actions/WorkOrders/SubOperations/SubOperationMobileStatusSuccessMessage.action').then(() => {
-                    return autoSyncLib.autoSyncOnStatusChange(context);
-                });
-            });
-        }).catch(() => {
-            context.dismissActivityIndicator();
-            // Roll back mobile status update
-            return context.executeAction({'Name': '/SAPAssetManager/Actions/Common/GenericDiscard.action', 'Properties': {
-                'Target': {
-                    'EntitySet': 'PMMobileStatuses',
-                    'Service': '/SAPAssetManager/Services/AssetManager.service',
-                    'EditLink': updateResult['@odata.editLink'],
-                },
-            }});
-        }).finally(() => {
-            context.dismissActivityIndicator();
-        });
-    } else {
-        context.showActivityIndicator('');
-        LocationUpdate(context);
-        return UpdateCICO().then(() => {
-            let properties = {
-                'MobileStatus': updateResult.MobileStatus,
-                'EffectiveTimestamp': updateResult.EffectiveTimestamp,
-                'CreateUserGUID': updateResult.CreateUserGUID,
-                'CreateUserId': updateResult.CreateUserId,
-            };
-            return mobileStatusHistoryEntryCreate(context, properties, updateResult['@odata.readLink']).then(() => {
+            }).then(() => {
+                context.showActivityIndicator('');
+                let properties = {
+                    'MobileStatus': updateResult.MobileStatus,
+                    'EffectiveTimestamp': updateResult.EffectiveTimestamp,
+                    'CreateUserGUID': updateResult.CreateUserGUID,
+                    'CreateUserId': updateResult.CreateUserId,
+                };
+                return mobileStatusHistoryEntryCreate(context, properties, updateResult['@odata.readLink']);
+            }).then(UpdateCICO).then(() => {
                 return ToolbarRefresh(context).then(() => {
+                    context.getClientData().ChangeStatus = updateResult.MobileStatus;
                     return context.executeAction('/SAPAssetManager/Actions/WorkOrders/SubOperations/SubOperationMobileStatusSuccessMessage.action').then(() => {
                         return autoSyncLib.autoSyncOnStatusChange(context);
                     });
                 });
+            }).catch(() => {
+                context.dismissActivityIndicator();
+                // Roll back mobile status update
+                return context.executeAction({'Name': '/SAPAssetManager/Actions/Common/GenericDiscard.action', 'Properties': {
+                    'Target': {
+                        'EntitySet': 'PMMobileStatuses',
+                        'Service': '/SAPAssetManager/Services/AssetManager.service',
+                        'EditLink': updateResult['@odata.editLink'],
+                    },
+                }});
+            }).finally(() => {
+                context.dismissActivityIndicator();
             });
-        }).finally(() => {
-            context.dismissActivityIndicator();
-        });
-    }
+        } else {
+            context.showActivityIndicator('');
+            LocationUpdate(context);
+            return UpdateCICO().then(() => {
+                let properties = {
+                    'MobileStatus': updateResult.MobileStatus,
+                    'EffectiveTimestamp': updateResult.EffectiveTimestamp,
+                    'CreateUserGUID': updateResult.CreateUserGUID,
+                    'CreateUserId': updateResult.CreateUserId,
+                };
+                return mobileStatusHistoryEntryCreate(context, properties, updateResult['@odata.readLink']).then(() => {
+                    return ToolbarRefresh(context).then(() => {
+                        return context.executeAction('/SAPAssetManager/Actions/WorkOrders/SubOperations/SubOperationMobileStatusSuccessMessage.action').then(() => {
+                            return autoSyncLib.autoSyncOnStatusChange(context);
+                        });
+                    });
+                });
+            }).finally(() => {
+                context.dismissActivityIndicator();
+            });
+        }
+    });
 }

@@ -7,6 +7,7 @@ import MobileStatusUpdateResultsClass from '../../MobileStatus/MobileStatusUpdat
 import libThis from './SubOperationStatusUpdateSequenceClass';
 import { SEQUENCE_ITEMS_NAMES } from '../../WorkOrders/MobileStatus/WorkOrderStatusUpdateSequenceClass';
 import libSubOperationMobile from './SubOperationMobileStatusLibrary';
+import IsOperationControlKeyAllowsConfirmation from '../../Operations/IsOperationControlKeyAllowsConfirmation';
 
 /**
  * @typedef {import('../../WorkOrders/MobileStatus/WorkOrderStatusUpdateSequenceClass').UpdateSequenceItem} UpdateSequenceItem
@@ -106,15 +107,17 @@ export default class SubOperationStatusUpdateSequenceClass {
      * @param {Object} status 
      * @returns {Array<UpdateSequenceItem>}
      */
-    static getHoldStatusUpdateSequence(context, binding, status) {
+    static async getHoldStatusUpdateSequence(context, binding, status) {
         const defaultUpdateSequence = libThis.getDefaultUpdateSequence(context, binding, status);
         const insertTimeCaptureIdx = defaultUpdateSequence.findIndex(seqItem => seqItem.Name === SEQUENCE_ITEMS_NAMES.UPDATE_CICO) + 1;
         const insertUpdateFlagIdx = defaultUpdateSequence.findIndex(seqItem => seqItem.Name === SEQUENCE_ITEMS_NAMES.MOBILE_STATUS_UPDATE) + 1;
 
-        defaultUpdateSequence.splice(insertTimeCaptureIdx, 0, {
-            Name: SEQUENCE_ITEMS_NAMES.TIME_CAPTURE,
-            Function: libSubOperationMobile.showTimeCaptureMessage.bind(null, context, binding, false),
-        });
+        if (await IsOperationControlKeyAllowsConfirmation(context, binding)) {
+            defaultUpdateSequence.splice(insertTimeCaptureIdx, 0, {
+                Name: SEQUENCE_ITEMS_NAMES.TIME_CAPTURE,
+                Function: libSubOperationMobile.showTimeCaptureMessage.bind(null, context, binding, false),
+            });
+        }
 
         defaultUpdateSequence.splice(insertUpdateFlagIdx, 0, {
             Name: SEQUENCE_ITEMS_NAMES.CLEAR_FLAGS,

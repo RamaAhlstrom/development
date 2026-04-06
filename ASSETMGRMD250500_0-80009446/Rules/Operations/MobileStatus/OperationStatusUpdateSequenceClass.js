@@ -12,7 +12,7 @@ import OperationSelfAssign from '../../MobileStatus/OperationSelfAssign';
 import libOperationMobile from './OperationMobileStatusLibrary';
 import libPhase from '../../PhaseModel/PhaseLibrary';
 import WorkOrderCompletionLibrary from '../../WorkOrders/Complete/WorkOrderCompletionLibrary';
-import IsConfirmationEnabledOperation from '../IsConfirmationEnabledOperation';
+import IsOperationControlKeyAllowsConfirmation from '../IsOperationControlKeyAllowsConfirmation';
 import ApprovalPostUpdate from '../../Supervisor/ApprovalPostUpdate';
 import { getUpdateToStatusConfig } from '../../MobileStatus/RunMobileStatusUpdateSequence';
 
@@ -162,7 +162,7 @@ export default class OperationStatusUpdateSequenceClass {
             Function: libThis.updateIsAnythingStartedFlag.bind(null, context),
         });
 
-        if (await IsConfirmationEnabledOperation(context, binding)) {
+        if (await IsOperationControlKeyAllowsConfirmation(context, binding)) {
             defaultUpdateSequence.splice(insertIdx + 1, 0, {
                 Name: SEQUENCE_ITEMS_NAMES.TIME_CAPTURE,
                 Function: libOperationMobile.showTimeCaptureMessage.bind(null, context, status.MobileStatus),
