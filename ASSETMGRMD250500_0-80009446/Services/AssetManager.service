@@ -1,0 +1,23 @@
+{
+	"DestinationName": "DEST_SAM2505_PPROP",
+	"LanguageURLParam": "sap-language",
+	"Headers": {
+		"SAP-PASSPORT": "/SAPAssetManager/Rules/Common/Passport/GetSAPPassportHeaderValue.js",
+		"x-app-info": "/SAPAssetManager/Rules/ApplicationEvents/AppInformationHeader.js"
+	},
+	"OfflineEnabled": true,
+	"OfflineOptions": {
+		"ServiceOptions": {
+			"supportsBind": false
+		},
+		"CSDLOptions": [
+			"retainOriginalText",
+			"retainResolvedText"
+		],
+		"StoreParameters": {
+			"EnableIndividualErrorArchiveDeletion": true,
+			"EnableRequestQueueOptimization": true
+		}
+	},
+	"SourceType": "Mobile"
+}

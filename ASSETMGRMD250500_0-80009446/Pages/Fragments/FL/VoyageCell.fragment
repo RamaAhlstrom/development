@@ -1,0 +1,13 @@
+{
+"_Type": "Control.Type.ObjectCell",
+"AccessoryType": "DisclosureIndicator",
+"PreserveIconStackSpacing": false,
+"Title": "#Property:VoyageNumber",
+"Subhead": "/SAPAssetManager/Rules/FL/Voyages/VoyageSubhead.js",
+"Footnote": "/SAPAssetManager/Rules/FL/Voyages/VoyageFootnote.js",
+"Description": "/SAPAssetManager/Rules/FL/Voyages/VoyageObjectCellDescription.js",
+"StatusText": "#Property:FldLogsVoyageStatus_Nav/Description",
+"AccessoryButtonIcon":"/SAPAssetManager/Images/ewm_voyageactions.png",
+"OnAccessoryButtonPress": "/SAPAssetManager/Actions/FL/Voyages/VoyagePopOver.action",
+"OnPress": "/SAPAssetManager/Rules/FL/Voyages/Details/VoyageDetailsPageNav.js"
+}

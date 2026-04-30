@@ -1,0 +1,138 @@
+{
+	"Controls": [
+		
+		{
+			"FilterFeedbackBar": {
+				"ShowAllFilters": false,
+				"_Type": "Control.Type.FilterFeedbackBar"
+			},
+			"_Type": "Control.Type.SectionedTable",
+			"_Name": "SectionedTable0",
+			"Sections": [
+				{
+					"Controls": [
+						{
+							"_Type": "Control.Type.FormCell.SegmentedControl",
+							"_Name": "FormCellSegmentedControl1",
+							"IsVisible": true,
+							"Separator": true,
+							"Caption": "$(L,nQ1)",
+							 "HelperText": "$(L,nQ11)",
+							"IsEditable": true,
+							"ApportionsSegmentWidthsByContent": false,
+							"Value":"",
+							"Segments": [
+								"$(L,Yes)",
+								"$(L,No)"
+							]
+						},
+						{
+							"_Type": "Control.Type.FormCell.SegmentedControl",
+							"_Name": "FormCellSegmentedControl2",
+							"IsVisible": true,
+							"Separator": true,
+							"Caption":  "$(L,nQ2)",
+							"IsEditable": true,
+							"ApportionsSegmentWidthsByContent": false,
+							"Value":"",
+							"Segments": [
+								"$(L,Yes)",
+								"$(L,No)"
+							],
+							 "HelperText": "$(L,nQ22)"
+						},
+						{
+							"_Type": "Control.Type.FormCell.SegmentedControl",
+							"_Name": "FormCellSegmentedControl3",
+							"IsVisible": true,
+							"Separator": true,
+							"Caption":  "$(L,nQ3)",
+							 "HelperText": "$(L,nQ33)",
+							"IsEditable": true,
+							"ApportionsSegmentWidthsByContent": false,
+							"Value":"",
+							"Segments": [
+								"$(L,Yes)",
+								"$(L,No)"
+							]
+						},
+						{
+							"_Type": "Control.Type.FormCell.SegmentedControl",
+							"_Name": "FormCellSegmentedControl4",
+							"IsVisible": true,
+							"Separator": true,
+							"Caption":  "$(L,nQ4)",
+							 "HelperText": "$(L,nQ44)",
+							"IsEditable": true,
+							"ApportionsSegmentWidthsByContent": false,
+							"Value":"",
+							"Segments": [
+								"$(L,Yes)",
+								"$(L,No)"
+							]
+						},{
+							"_Type": "Control.Type.FormCell.Note",
+							"_Name": "FormCellNote0",
+							"IsVisible": true,
+							"Caption": "$(L,comments)",
+							"PlaceHolder": "PlaceHolder",
+							"Enabled": true,
+							"IsEditable": true
+						}
+						
+						
+					],
+					"Header": {
+						"_Name": "SectionHeader001",
+						"AccessoryType": "None",
+						"UseTopPadding": true,
+						"Caption":"$(L,Q1_to_Q5_Text11)"
+					},
+					"Footer": {
+						"_Name": "SectionFooter002",
+						"Caption": "$(L,Q1_to_Q5_Text2)",
+						"Visible": false,
+						"UseBottomPadding": false
+					},
+					"Separators": {
+						"TopSectionSeparator": false,
+						"BottomSectionSeparator": true,
+						"HeaderSeparator": true,
+						"FooterSeparator": true,
+						"ControlSeparator": true
+					},
+					"Visible": true,
+					"EmptySection": {
+						"FooterVisible": false
+					},
+					"_Type": "Section.Type.FormCell",
+					"_Name": "SectionFormCell0"
+				}
+			]
+		}
+	],
+	"_Type": "Page",
+	"_Name": "Zmobilecmplt_Create",
+	"Caption":  "$(L,Create_Job_Safety_assessment1)",
+	"OnLoaded": "/ZSAPAssetManager/Rules/WorkOrders/JSPSTATUS/Zmobilecmplt_Onload.js",
+	"PrefersLargeCaption": true,
+	"ActionBar": {
+		"Items": [
+			{
+				"_Name": "ActionBarItem0",
+				"Caption": "",
+				"SystemItem": "Cancel",
+				"Position": "Left",
+				"IsIconCircular": false,
+				"OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
+			},
+			{
+                "Position": "right",
+                "SystemItem": "$(PLT,'Done','')",
+                "Text": "/SAPAssetManager/Rules/Common/Platform/DoneText.js",
+				"OnPress": "/ZSAPAssetManager/Rules/WorkOrders/JSPSTATUS/Zmobilecmplt_Create.js"
+			}
+		],
+		"_Name": "ActionBar1"
+	}
+}

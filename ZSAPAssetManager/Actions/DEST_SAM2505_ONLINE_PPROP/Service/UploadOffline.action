@@ -1,0 +1,9 @@
+{
+    "Service": "/ZSAPAssetManager/Services/DEST_SAM2505_ONLINE_PPROP.service",
+    "_Type": "Action.Type.OfflineOData.Upload",
+    "ActionResult": {
+        "_Name": "sync"
+    },
+    "OnSuccess": "/ZSAPAssetManager/Actions/DEST_SAM2505_ONLINE_PPROP/Service/DownloadStartedMessage.action",
+    "OnFailure": "/ZSAPAssetManager/Actions/DEST_SAM2505_ONLINE_PPROP/Service/SyncFailureMessage.action"
+}

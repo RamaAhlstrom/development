@@ -1,0 +1,13 @@
+{
+    "CreateLinks": [],
+    "Properties": {
+    },
+    "Target": {
+        "EntitySet": "ZJSARESPONSESet",
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "ActionResult": {
+        "_Name": "create"
+    },
+    "_Type": "Action.Type.ODataService.CreateEntity"
+}

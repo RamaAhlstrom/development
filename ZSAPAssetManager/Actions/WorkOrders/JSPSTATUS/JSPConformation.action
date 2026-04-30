@@ -1,0 +1,10 @@
+{
+	"_Type": "Action.Type.Message",
+	"ActionResult": {
+		"_Name": "JSPSTATUS"
+	},
+	"Message": "Take 2 for the work order is either pending or not ok. It is recommended to take necessary steps before proceeding. Do you still want to Proceed?",
+	"OKCaption": "YES",
+	"OnOK": "/ZSAPAssetmanager/Rules/MobileStatus/RunMobileStatusUpdateSequencecopy.js",
+	"CancelCaption": "NO"
+}

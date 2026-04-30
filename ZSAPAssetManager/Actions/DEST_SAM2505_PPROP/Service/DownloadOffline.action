@@ -1,0 +1,13 @@
+{
+    "Service": "/ZSAPAssetManager/Services/DEST_SAM2505_PPROP.service",
+    "DefiningRequests": [{
+        "Name": "AcctIndicators",
+        "Query": "AcctIndicators"
+    }],
+    "_Type": "Action.Type.OfflineOData.Download",
+    "ActionResult": {
+        "_Name": "sync"
+    },
+    "OnFailure": "/ZSAPAssetManager/Actions/DEST_SAM2505_PPROP/Service/SyncFailureMessage.action",
+    "OnSuccess": "/ZSAPAssetManager/Rules/DEST_SAM2505_PPROP/ErrorArchive_CheckForSyncError.js"
+}

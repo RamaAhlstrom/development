@@ -1,0 +1,14 @@
+{
+  "_Type": "Action.Type.AICore.Chat.Completions",
+  "ResourceGroup": "default", 
+  "Target": {
+    "Service": "/SAPAssetManager/Services/AzureOpenAI.service",
+    "Path": "/chat/completions"
+  },
+  "Properties": {
+    "Messages": [],
+    "Model": "gpt-4o-mini"
+  },
+  "ShowActivityIndicator": true,
+  "ActivityIndicatorText": "$(L, processing)"
+}

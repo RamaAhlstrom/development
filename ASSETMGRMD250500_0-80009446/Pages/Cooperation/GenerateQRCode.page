@@ -1,0 +1,76 @@
+
+{
+	"Caption": "QR Code",
+    "OnLoaded": "/SAPAssetManager/Rules/Cooperation/GenerateQRCodeOnLoaded.js",
+    "ActionBar": {
+        "Items": [
+        {
+            "Position": "Left",
+            "SystemItem": "$(PLT,'','Cancel','','Cancel')",
+            "Text": "$(L,close)",
+            "Caption": "$(L,close)",
+            "OnPress": "/SAPAssetManager/Rules/Cooperation/CloseGenerateQRCodePage.js"
+        }]
+    },
+	"Controls": [
+		{
+			"Sections": [{
+				"_Name": "SectionImage",
+				"_Type": "Section.Type.Image",
+				"Image": "/SAPAssetManager/Rules/Cooperation/GetQRCodeImage.js",
+				"Caption": "QR Code",
+				"Visible": true,
+				"ContentMode": "ScaleToFill",
+				"Alignment": "center",
+				"Width": "/SAPAssetManager/Rules/Cooperation/DetermineQRCodeHeightWidth.js",
+				"Height": "/SAPAssetManager/Rules/Cooperation/DetermineQRCodeHeightWidth.js"
+			},
+			{
+                "_Type": "Section.Type.FormCell",
+				"Controls": [
+                    {
+						"Text": "",
+						"_Name": "CountDownMessage",
+                        "Style": "CooperationCenteredBlack",
+                        "TextWrap": true,
+						"_Type": "Control.Type.FormCell.Label"
+					}
+                ]
+            },
+            {
+                "_Type": "Section.Type.FormCell",
+				"Controls": [
+                    {
+						"Caption": "$(L,comment)",
+						"IsEditable": true,
+						"IsVisible": false,
+						"PlaceHolder": "$(L,comment)",
+						"Value": "",
+						"_Name": "LongText",
+                        "IsAutoResizing": true,
+                        "HelperText": "$(L,comment_helper_text)",
+                        "OnValueChange": "/SAPAssetManager/Rules/Cooperation/GenerateQRCodeCommentOnChange.js",
+                        "_Type": "Control.Type.FormCell.Note"
+					}
+				]
+			},
+            {
+                "_Type": "Section.Type.FormCell",
+                "Controls":
+                [{
+                    "Title": "$(L,regenerate_qr_code)",
+                    "OnPress": "/SAPAssetManager/Rules/Cooperation/GenerateQRCodeAndRefreshWrapper.js",
+                    "ButtonType": "Text",
+                    "_Type": "Control.Type.FormCell.Button",
+                    "_Name": "GenerateButton",
+                    "TextAlignment": "/SAPAssetManager/Rules/Common/Platform/ModalButtonAlign.js"
+                }]
+            }
+			],
+			"_Name": "SectionedTable",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"_Name": "GenerateQRCode",
+	"_Type": "Page"
+}

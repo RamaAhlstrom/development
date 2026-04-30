@@ -1,0 +1,10 @@
+{
+	"Application": "/home/user/projects/ASSETMGRMD250500_0-80009446/Application.app",
+	"Target": "Mobile Services",
+	"OtherApps": [
+		{
+			"Application": "/home/user/projects/ASSETMGRMD250500_0-80009446/Application.app",
+			"Target": "Mobile Services"
+		}
+	]
+}

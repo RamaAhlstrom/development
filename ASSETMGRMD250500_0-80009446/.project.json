@@ -1,0 +1,45 @@
+{
+	"validation": {
+		"exclude": {
+			"ui": [
+				"#Control:Comments"
+			],
+			"i18n": [
+				"map_settings_close",
+				"bm_title",
+				"fl_title",
+				"dl_title",
+				"map_nearme_dist_title",
+				"map_nearme_unit_title",
+				"map_nearme_mi",
+				"map_nearme_km",
+				"battery_saving_switch_title",
+				"battery_saving_switch_desctiption"
+			]
+		}
+	},
+	"Onboarding": {
+		"Schema": "sapmobilesvcs",
+		"TimeZone": "UTC",
+		"URL": "sapmobilesvcs://?AppId=SAM2505&ClientId=0f55978d-1fa4-4b03-8adb-f35888982ed5&ServerUrl=https://am-dev-am-cf-devspace-sam2505.cfapps.eu20.hana.ondemand.com&SapCloudPlatformEndpoint=https://am-dev-am-cf-devspace-sam2505.cfapps.eu20.hana.ondemand.com&AuthorizationEndpointUrl=https://am-dev-am-cf-devspace-sam2505.cfapps.eu20.hana.ondemand.com/oauth2/api/v1/authorize&RedirectUrl=https://am-dev-am-cf-devspace-sam2505.cfapps.eu20.hana.ondemand.com&TokenUrl=https://am-dev-am-cf-devspace-sam2505.cfapps.eu20.hana.ondemand.com/oauth2/api/v1/token&multiUser=false"
+	},
+	"CF": {
+		"Target": "https://api.cf.eu20-001.hana.ondemand.com",
+		"Organization": "90cdb976-f79a-4723-a79a-00dbc1be426a",
+		"Space": "d327e590-1ecb-46ec-9a3b-f301339aa341"
+	},
+	"MobileService": {
+		"Type": "standard",
+		"AdminAPI": "https://mobile-service-cockpit-api.cfapps.eu20.hana.ondemand.com/cockpit/v1/org/90cdb976-f79a-4723-a79a-00dbc1be426a/space/d327e590-1ecb-46ec-9a3b-f301339aa341",
+		"AppId": "SAM2505",
+		"Destination": [
+			"DEST_SAM2505_PPROP",
+			"DEST_SAM2505_ONLINE_PPROP"
+		]
+	},
+	"Build": {
+		"SourceMap": false,
+		"TSTarget": "es6",
+		"WMF": true
+	}
+}

@@ -1,0 +1,26 @@
+{
+	"KeyAndValues": [
+        {
+			"_Name": "UserStatusText",
+			"KeyName": "$(L,user_status)",
+			"Value": "{UserStatusText}"
+		},
+        {
+			"_Name": "SystemStatusText",
+			"KeyName": "$(L,system_status)",
+            "Value": "{SystemStatusText}"
+		},
+		{
+                            "KeyName": "$(L,JSA_Status1)",
+                            "Value": "/ZSAPAssetManager/Rules/WorkOrders/JSPSTATUS/Zmobilecmplt_Textdisplay.js",
+                            "OnPress":  "/ZSAPAssetManager/Rules/Zstatusgridtable.js",
+                            "LinkColor": "/ZSAPAssetManager/Rules/WorkOrders/JSPSTATUS/Zmobilecmplt_Textdisplay_color.js"
+                        }
+	],
+    "Layout": {
+        "NumberOfColumns": 2
+	},
+    "Target": "/SAPAssetManager/Rules/Common/DetailsPage/DetailsPageStatusesTable.js",
+    "_Type": "Section.Type.KeyValue",
+	"_Name": "UserSystemStatuses"
+}

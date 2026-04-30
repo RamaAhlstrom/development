@@ -1,0 +1,157 @@
+{
+	"Caption": "$(L,personalization)",
+	"ActionBar":
+    {
+        "_Name": "Personalization",
+        "Items":
+        [{
+            "Position": "Right",
+			"SystemItem": "$(PLT,'Done','', '','Done')",
+            "Text": "/SAPAssetManager/Rules/Common/Platform/DoneText.js",
+            "OnPress": "/SAPAssetManager/Rules/UserPreferences/UserPreferencesUpdate.js"
+        }]
+    },
+    "Controls": [{
+		"_Name": "FormCellContainer",
+		"_Type": "Control.Type.SectionedTable",
+		"Sections": [{
+			"_Type": "Section.Type.FormCell",
+			"_Name": "FormCellSection1",
+			"Controls":
+			[{
+                "Caption": "$(L, layout)",
+                "Value": "/SAPAssetManager/Rules/UserPreferences/LayoutStyleValue.js",
+                "Segments": [
+					{
+						"DisplayValue": "$(L, New)",
+						"ReturnValue": "new"
+					},
+					{
+						"DisplayValue": "$(L, classic)",
+						"ReturnValue": "classic"
+					}
+				],
+                "_Name": "LayoutSeg",
+                "_Type": "Control.Type.FormCell.SegmentedControl",
+				"IsVisible": "/SAPAssetManager/Rules/UserPreferences/LayoutPersonalization.js"
+			},
+			{
+                "Caption": "$(L, take_readings)",
+                "Value": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointViewInitialValue.js",
+                "Segments": [
+					{
+						"DisplayValue": "$(L, table)",
+						"ReturnValue": "0"
+					},
+					{
+						"DisplayValue": "$(L, list)",
+						"ReturnValue": "1"
+					}
+				],
+                "_Name": "ReadingsScreenSeg",
+                "_Type": "Control.Type.FormCell.SegmentedControl",
+                "IsVisible": "/SAPAssetManager/Rules/UserPreferences/MeasuringPointPersonalization.js"
+			},
+			{
+                "Caption": "/SAPAssetManager/Rules/InspectionCharacteristics/InspectionCharacteristicPersonalizationCaption.js",
+                "Value": "/SAPAssetManager/Rules/InspectionCharacteristics/InspectionCharacteristicViewInitialValue.js",
+                "Segments": [
+					{
+						"DisplayValue": "$(L, table)",
+						"ReturnValue": "0"
+					},
+					{
+						"DisplayValue": "$(L, list)",
+						"ReturnValue": "1"
+					}
+				],
+                "_Name": "CheckListScreenSeg",
+                "_Type": "Control.Type.FormCell.SegmentedControl",
+				"IsVisible": "/SAPAssetManager/Rules/UserPreferences/InspectionCharacteristicsPersonalization.js"
+			},
+			{
+                "Caption": "$(L, persist_filter)",
+                "Value": "/SAPAssetManager/Rules/UserPreferences/PersistFilterSwitchValue.js",
+                "_Name": "FilterSwitch",
+                "_Type": "Control.Type.FormCell.Switch"
+			},
+			{
+                "Caption": "$(L, use_ai_prompt)",
+                "Value": "/SAPAssetManager/Rules/UserPreferences/AIJobCompletionSwitchValue.js",
+				"IsVisible": "/SAPAssetManager/Rules/UserPreferences/AIJobCompletionSwitchVisible.js",
+                "_Name": "AISwitch",
+                "_Type": "Control.Type.FormCell.Switch"
+			},
+			{
+                "Caption": "$(L, item_view)",
+                "Value": "/SAPAssetManager/Rules/UserPreferences/ServiceItemViewValue.js",
+                "Segments": [
+					{
+						"DisplayValue": "$(L, table)",
+						"ReturnValue": "0"
+					},
+					{
+						"DisplayValue": "$(L, list)",
+						"ReturnValue": "1"
+					}
+				],
+                "_Name": "ServiceItemsViewSeg",
+                "_Type": "Control.Type.FormCell.SegmentedControl",
+				"IsVisible": "/SAPAssetManager/Rules/UserPreferences/ServiceItemsViewPersonalizationVisible.js"
+			}]
+		},
+		{
+			"_Type": "Section.Type.FormCell",
+			"_Name": "FormCellSection2",
+			"Visible": "/SAPAssetManager/Rules/UserPreferences/IsSyncProfileOverride.js",
+			"Controls":
+			[{
+				"Caption": "$(L, manual_upload)",
+				"HelperText": "$(L, manual_upload_helper_text)",
+				"Value": "/SAPAssetManager/Rules/UserPreferences/PersonalizedSyncInitialValue.js",
+				"_Name": "ManualUploadSwitch",
+				"_Type": "Control.Type.FormCell.Switch"
+			}]
+		},
+		{
+			"_Type": "Section.Type.FormCell",
+			"_Name": "FormCellSection3",
+			"Header": {
+				"Caption": "$(L, auto_sync)"
+			},
+			"Visible": "/SAPAssetManager/Rules/UserPreferences/IsSyncProfileOverrideAndAutoSyncEnabled.js",
+			"Controls":
+			[{
+				"Caption": "$(L, auto_sync_periodically)",
+				"Value": "/SAPAssetManager/Rules/UserPreferences/PersonalizedSyncInitialValue.js",
+				"Unit": "Hour",
+				"IsVisible": "/SAPAssetManager/Rules/UserPreferences/PersonalizedSyncSettingsVisible.js",
+				"_Name": "AutoSyncPeriodicControl",
+				"_Type": "Control.Type.FormCell.DurationPicker"
+			},
+			{
+				"Caption": "$(L, auto_sync_status_change)",
+				"Value": "/SAPAssetManager/Rules/UserPreferences/PersonalizedSyncInitialValue.js",
+				"IsVisible": "/SAPAssetManager/Rules/UserPreferences/PersonalizedSyncSettingsVisible.js",
+				"_Name": "AutoSyncStatusSwitch",
+				"_Type": "Control.Type.FormCell.Switch"
+			},
+			{
+				"Caption": "$(L, auto_sync_app_launched)",
+				"Value": "/SAPAssetManager/Rules/UserPreferences/PersonalizedSyncInitialValue.js",
+				"IsVisible": "/SAPAssetManager/Rules/UserPreferences/PersonalizedSyncSettingsVisible.js",
+				"_Name": "AutoSyncAppLaunchSwitch",
+				"_Type": "Control.Type.FormCell.Switch"
+			},
+			{
+				"Caption": "$(L, auto_sync_offline_online)",
+				"Value": "/SAPAssetManager/Rules/UserPreferences/PersonalizedSyncInitialValue.js",
+				"IsVisible": "/SAPAssetManager/Rules/UserPreferences/PersonalizedSyncSettingsVisible.js",
+				"_Name": "AutoSyncOfflineOnlineSwitch",
+				"_Type": "Control.Type.FormCell.Switch"
+			}]
+		}]
+		}],
+	"_Name": "Personalization",
+	"_Type": "Page"
+}

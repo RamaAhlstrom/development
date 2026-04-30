@@ -1,0 +1,41 @@
+{
+	"Caption": "$(L, warehouse_task)",
+	"ActionBar": {
+		"Items": [
+       		{
+				"Position": "Right",
+				"Icon": "$(PLT, sap-icon://edit, sap-icon://edit, '', sap-icon://edit)",
+				"IconText": "Task Confirmation",
+				"Caption": "$(L, ewm_confirm_task)",
+				"Visible": "/SAPAssetManager/Rules/EWM/WarehouseTask/Confirmation/IsVisibleEditIcon.js",
+				"OnPress": "/SAPAssetManager/Rules/EWM/WarehouseTask/Confirmation/OnPressTaskConfirmationButton.js"
+			},
+			"/SAPAssetManager/Pages/Fragments/SyncButton.fragment"
+		]
+	},
+	"Controls": [
+		{
+			"Items": [			
+            {
+				"_Name": "WarehouseTaskDetailsTab",
+				"Caption": "$(L, task_details)",
+                "PageToOpen": "/SAPAssetManager/Pages/EWM/WarehouseTasks/WarehouseTaskDetails.page",
+	            "PageMetadata": "/SAPAssetManager/Rules/EWM/WarehouseTask/Details/WarehouseTaskDetailsPageMetadata.js",
+				"_Type": "Control.Type.TabItem"
+
+			},
+			{
+				"_Name": "WarehouseTaskConfirmationsTab",
+				"Caption": "$(L, local_confirmations)",
+				"PageToOpen" : "/SAPAssetManager/Pages/EWM/WarehouseTasks/WarehouseTaskLocalConfirmations.page",
+				"_Type": "Control.Type.TabItem"
+
+			}],
+			"Position": "Top",
+			"_Type": "Control.Type.Tabs",
+			"_Name": "TabsControl"
+  		}
+	],
+	"_Name": "WarehouseTaskDetailsAndConfirmationsPage",
+	"_Type": "Page"
+}

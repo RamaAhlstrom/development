@@ -1,0 +1,20 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target": {
+        "EntitySet": "MyWorkOrderHeaders",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "/ZSAPAssetmanager/Rules/WorkOrders/JSPSTATUS/Zmobilecmplt_Readlink.js"
+    },
+    "Properties": {
+        "OrderDescription":  "/ZSAPAssetmanager/Rules/WorkOrders/JSPSTATUS/Zmobilecmplt_Description.js",
+        "ZISA": "/ZSAPAssetmanager/Rules/WorkOrders/JSPSTATUS/Zmobilecmplt_JSPSTATUS.js"
+         },
+    "Headers": {
+        "OfflineOData.TransactionID": "/ZSAPAssetmanager/Rules/WorkOrders/JSPSTATUS/Zmobilecmplt_Transtation.js"
+    },
+    "OnSuccess": "/ZSAPAssetmanager/Rules/WorkOrders/JSPSTATUS/Zmobilecmplt_Sucess.js",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntityFailureMessage.action",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  "
+
+}
